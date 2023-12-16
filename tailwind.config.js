@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode:"class",
+  darkMode: "class",
   theme: {
     extend: {
       container: {
@@ -25,9 +25,15 @@ export default {
           4: "#E5E5E5",
           5: "#ACACAC",
         },
+        white: {
+          DEFAULT: "#fff",
+        },
       },
       fontFamily: {
         "cera-pro": "Cera Pro",
+      },
+      fontWeight: {
+        bold: "700",
       },
     },
   },

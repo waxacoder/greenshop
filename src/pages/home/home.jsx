@@ -1,7 +1,9 @@
-
+import { Header} from "../../components/pages";
 
 export const Home = () => {
   return (
-    <div>home</div>
-  )
-}
+    <div className="container">
+      <Header />
+    </div>
+  );
+};
