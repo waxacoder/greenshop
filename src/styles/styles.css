@@ -6,10 +6,11 @@
   scroll-behavior: smooth;
 }
 
+@import url(./fonts.css);
+
 /* html {
   font-size: 62.5%;
 } */
-body{
-  font-family: 'Cera Pro';
-  
+body {
+  font-family: "Cera Pro";
 }

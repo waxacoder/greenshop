@@ -1,5 +1,25 @@
+import { Link } from "react-router-dom";
+
 export const Shop = () => {
   return (
-    <div>shop</div>
-  )
-}
+    <div>
+      <div className="flex">
+        <Link>Home / </Link>
+        <Link>Shop</Link>
+      </div>
+      <div>
+        <div>
+          <div>
+            <div>
+
+            </div>
+          </div>
+        </div>
+
+
+        
+        <div></div>
+      </div>
+    </div>
+  );
+};
