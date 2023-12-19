@@ -1,25 +1,14 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { ProductInfo } from "./productinfo";
+import { Description } from "./description";
+import { Products } from "./products";
 
 export const Shop = () => {
   return (
     <div>
-      <div className="flex">
-        <Link>Home / </Link>
-        <Link>Shop</Link>
-      </div>
-      <div>
-        <div>
-          <div>
-            <div>
-
-            </div>
-          </div>
-        </div>
-
-
-        
-        <div></div>
-      </div>
+      <ProductInfo />
+      <Description/>
+      <Products/>
     </div>
   );
 };

@@ -24,7 +24,8 @@ export default {
           3: "#CBCBCB",
           4: "#E5E5E5",
           5: "#ACACAC",
-          6: "#FAFAFA"
+          6: "#FAFAFA",
+          7: "#C4C4C4",
         },
         white: {
           DEFAULT: "#fff",

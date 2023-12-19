@@ -3,8 +3,9 @@ import { CiShoppingCart, CiSearch, CiLogin } from "react-icons/ci";
 
 import logo from "/images/Logo.svg";
 import { Button } from "../../common";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 export const Navbar = () => {
+  const { pathname } = useLocation();
   return (
     <nav className="flex items-center justify-between  border-b-[0.3px] border-green border-opacity-50">
       <img src={logo} alt="Logo" />
@@ -12,13 +13,19 @@ export const Navbar = () => {
         <li>
           <Link
             to={"/"}
-            className="border-solid transition-all relative hover:before:w-full hover:font-bold   before:absolute before:bottom-0 before:w-[0%] before:h-[3px] before:bg-green  border-green  py-[31px] ">
+            className={`border-solid transition-all relative hover:before:w-full hover:font-bold   before:absolute before:bottom-0 before:w-[0%] before:h-[3px] before:bg-green  border-green  py-[31px] ${
+              pathname === "/" ? "before:w-full font-bold " : ""
+            } `}>
             {" "}
             Home{" "}
           </Link>
         </li>
         <li>
-          <Link className="border-solid relative hover:before:w-full hover:font-bold  before:absolute before:bottom-0 before:w-[0%] before:h-[3px] before:bg-green  border-green  py-[31px] ">
+          <Link
+            to={"/shop"}
+            className={`border-solid transition-all relative hover:before:w-full hover:font-bold   before:absolute before:bottom-0 before:w-[0%] before:h-[3px] before:bg-green  border-green  py-[31px] ${
+              pathname === "/shop" ? "before:w-full font-bold " : ""
+            } `}>
             Shop
           </Link>
         </li>
@@ -44,7 +51,7 @@ export const Navbar = () => {
         <Button>
           <CiLogin className="text-[20px]" />
           Log in
-        </Button>
+        </Button> 
       </div>
     </nav>
   );
