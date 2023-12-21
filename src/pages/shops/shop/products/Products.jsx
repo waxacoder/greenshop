@@ -3,7 +3,7 @@ import React from "react";
 export const Products = () => {
   const img1 = "https://i.ibb.co/GMtSkw0/01-3.png";
   const img2 = "https://i.ibb.co/Y3BMNXm/image-7.png";
-  const img3 = "https://i.ibb.co/RhWF32b/image-8.png";
+  const img3 = "https://i.ibb.co/RhWF32b/image-8.png"; 
   const img4 = "https://i.ibb.co/KXsmYW3/image-9.png";
   const img5 = "https://i.ibb.co/vHt9Lrk/image-10.png";
   return (

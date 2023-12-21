@@ -5,18 +5,36 @@ import { Button } from "../../../components/common";
 import { Link } from "react-router-dom";
 import { Description } from "../shop/description";
 import { Products } from "../shop/products";
-export const Cart = () => {
-  const img1 = "https://i.ibb.co/9GGfXX7/product-20-320x320-1.png";
-  const img2 = "https://i.ibb.co/Y3BMNXm/image-7.png";
-  const img3 = "https://i.ibb.co/RhWF32b/image-8.png";
-  const [count, setCount] = useState(1);
+import { productsAll } from "../../../data/data";
 
-  const increment = () => {
-    setCount(count + 1);
+export const Cart = () => {
+ 
+  
+  const [products, setProducts] = useState(productsAll);
+
+  const increment = (id) => {
+    const currentData = [...products];
+
+    currentData.forEach((item) => {
+      if (item.id === id) {
+        item.quantity = item.quantity + 1;
+        item.total = item.price * item.quantity;
+      }
+    });
+
+    setProducts(currentData);
   };
-  const decrement = () => {
-    if (count === 0) return;
-    setCount(count - 1);
+  const decrement = (id) => {
+    const currentData = [...products];
+
+    currentData.forEach((item) => {
+      if (item.id === id) {
+        item.quantity = item.quantity !== 0 ? item.quantity - 1 : 0;
+        item.total = item.price * item.quantity;
+      }
+    });
+
+    setProducts(currentData);
   };
 
   return (
@@ -51,60 +69,71 @@ export const Cart = () => {
                 </td>
               </tr>
 
-              <tr className="bg-grey py-[17px]  pr-[10px] border-b-[15px] border-white ">
-                <td className="">
-                  <div className="flex items-center">
-                    <div>
-                      <img
-                        src={img1}
-                        alt=" flower 1"
-                        className="w-[70px] h-[70px] mix-blend-multiply"
-                      />
-                    </div>
+              {products.map((item) => (
+                <tr className="bg-grey py-[17px]  pr-[10px] border-b-[15px] border-white ">
+                  <td className="">
+                    <div className="flex items-center">
+                      <div>
+                        <img
+                          src={item.image}
+                          alt=" flower 1"
+                          className="w-[70px] h-[70px] mix-blend-multiply"
+                        />
+                      </div>
 
-                    <div className="pl-[14px]">
-                      <h4 className="text-black text-base font-medium">
-                        Barberton Daisy
-                      </h4>
-                      <p className="text-neutral-500 text-sm ">
-                        <span className="text-neutral-400">SKU: </span>
-                        1995751877966
-                      </p>
+                      <div className="pl-[14px]">
+                        <h4 className="text-black text-base font-medium">
+                          {item.name}
+                        </h4>
+                        <p className="text-neutral-500 text-sm ">
+                          <span className="text-neutral-400">SKU: </span>
+                          {item.SKU}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </td>
+                  </td>
 
-                <td className="text-neutral-500 text-base font-medium">
-                  $119.00
-                </td>
-                <td>
-                  <div className="flex gap-[14px] items-center ">
-                    <div>
-                      <button
-                        onClick={decrement}
-                        className="w-[20px] h-[20px] bg-green flex items-center justify-center rounded-full">
-                        <FaMinus className="text-white" />
-                      </button>
+                  <td className="text-neutral-500 text-base font-medium">
+                    {item.price.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </td>
+                  <td>
+                    <div className="flex gap-[14px] items-center ">
+                      <div>
+                        <button
+                          onClick={() => decrement(item.id)}
+                          className="w-[20px] h-[20px] bg-green flex items-center justify-center rounded-full">
+                          <FaMinus className="text-white" />
+                        </button>
+                      </div>
+                      <span className="w-3 h-3 flex items-center justify-center">
+                        {item.quantity}
+                      </span>
+                      <div>
+                        <button
+                          className="w-[20px] h-[20px] bg-green flex items-center justify-center rounded-full"
+                          onClick={() => increment(item.id)}>
+                          <FaPlus className="text-white" />
+                        </button>
+                      </div>
                     </div>
-                    <span className="w-3 h-3 flex items-center justify-center">
-                      {count}
-                    </span>
-                    <div>
-                      <button
-                        className="w-[20px] h-[20px] bg-green flex items-center justify-center rounded-full"
-                        onClick={increment}>
-                        <FaPlus className="text-white" />
-                      </button>
-                    </div>
-                  </div>
-                </td>
+                  </td>
 
-                <td className="text-green text-base font-bold">$238.00</td>
-                <td>
-                  <FiTrash className="text-[#727272]" />
-                </td>
-              </tr>
-              <tr className="bg-grey py-[17px]  pr-[10px] border-b-[15px] border-white">
+                  <td className="text-green text-base font-bold">
+                    {item.total.toLocaleString("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    })}
+                  </td>
+                  <td>
+                    <FiTrash className="text-[#727272]" />
+                  </td>
+                </tr>
+              ))}
+
+              {/* <tr className="bg-grey py-[17px]  pr-[10px] border-b-[15px] border-white">
                 <td className="">
                   <div className="flex items-center">
                     <div>
@@ -156,8 +185,8 @@ export const Cart = () => {
                 <td>
                   <FiTrash className="text-[#727272]" />
                 </td>
-              </tr>
-
+              </tr> */}
+              {/* 
               <tr className="bg-grey py-[17px]  pr-[10px] ">
                 <td className="">
                   <div className="flex items-center">
@@ -210,7 +239,7 @@ export const Cart = () => {
                 <td>
                   <FiTrash className="text-[#727272]" />
                 </td>
-              </tr>
+              </tr> */}
             </table>
             <div></div>
           </div>
@@ -253,7 +282,17 @@ export const Cart = () => {
 
             <div className="flex justify-between mt-[26px]">
               <p className="text-black text-base font-bold">Total</p>
-              <p className="text-lg font-bold text-green">$2,699.00</p>
+              <p className="text-lg font-bold text-green">
+                {products
+                  .map((item) => item.total)
+                  .reduce(function (a, b) {
+                    return a + b;
+                  })
+                  .toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
+              </p>
             </div>
 
             <div className="mt-[29px]">

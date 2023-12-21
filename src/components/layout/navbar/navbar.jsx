@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { pathname } = useLocation();
   return (
     <nav className="flex items-center justify-between  border-b-[0.3px] border-green border-opacity-50">
-      <img src={logo} alt="Logo" />
+      <Link to={"/"}><img src={logo} alt="Logo" /></Link>
       <ul className="text-neutral-700 text-base  flex items-center gap-[50px] py-[27px]">
         <li>
           <Link
