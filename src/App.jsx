@@ -37,11 +37,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />}>
-          <Route path="shopping-cart" element={<Cart />} />
+        <Route path="shop">
+          <Route index element={<Shop />} />
+          <Route path="shopping-cart" element={<Cart/>} />
           <Route path="checkout" element={<Checkout />} />
         </Route>
-        <Route path="/account" element={<Account />}>
+        <Route path="account" element={<Account />}>
           <Route path="shopping-details" element={<AccountDetails />} />
           <Route path="address" element={<Address />} />
           <Route path="address" element={<Address />} />
@@ -51,8 +52,8 @@ function App() {
           <Route path="support" element={<Support />} />
           <Route path="wishlist" element={<Wishlist />} />
         </Route>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

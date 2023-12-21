@@ -7,10 +7,8 @@ export const Products = () => {
   const img4 = "https://i.ibb.co/KXsmYW3/image-9.png";
   const img5 = "https://i.ibb.co/vHt9Lrk/image-10.png";
   return (
-    <div className="my-[127px]">
-      <h4 className="text-green text-[17px] font-bold border-b-[0.2px] border-green border-opacity-50 pb-[12px]">
-        Releted Products
-      </h4>
+    <div className="mb-[127px]">
+      
       <div className="flex justify-between mt-[44px]">
         <div>
           <img src={img1} alt="image 1" className="w-[220px] h-[255px]" />

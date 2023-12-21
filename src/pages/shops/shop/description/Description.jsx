@@ -61,6 +61,9 @@ export const Description = () => {
         wooden stand to help elevate your <br /> plants off the ground. Lorem
         ipsum dolor sit amet, consectetur adipiscing elit.
       </p>
+      <h4 className="text-green text-[17px] font-bold border-b-[0.2px] border-green border-opacity-50 pb-[12px] mt-[127px]">
+        Releted Products
+      </h4>
     </div>
   );
 };

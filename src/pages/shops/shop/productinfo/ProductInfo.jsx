@@ -28,7 +28,7 @@ export const ProductInfo = () => {
   const images = [flower1, flower2, flower1, flower2];
 
   return (
-    <div>
+    <div className="mb-[94px]">
       <div className="flex gap-[5px] mt-[36px]">
         <Link className="font-bold">Home </Link>
         <Link>/ Shop</Link>
@@ -146,9 +146,11 @@ export const ProductInfo = () => {
                   Buy NOW
                 </p>
               </Button>
-              <button className="text-green text-sm font-bold uppercase leading-tight rounded-md border border-green px-[20px] py-[11px]">
-                Add to cart
-              </button>
+              <Link to={"/shop/shopping-cart"}>
+                <button className="text-green text-sm font-bold uppercase leading-tight rounded-md border border-green px-[20px] py-[11px]">
+                  Add to cart
+                </button>
+              </Link>
               <button className="text-green text-sm font-bold uppercase leading-tight rounded-md border border-green px-[12px] py-[11px]">
                 <CiHeart className="w-5 h-5" />
               </button>

@@ -43,7 +43,7 @@ export const Navbar = () => {
       <div className="flex items-center  gap-[30px]">
         <div className="flex items-center relative gap-[30px]">
           <CiSearch className="text-[24px]" />
-          <CiShoppingCart className="text-[28px]" />
+          <Link to={"shopping-cart"}><CiShoppingCart  className="text-[28px]" /></Link>
           <span className="absolute text-[10px] bg-green w-[13px] h-[13px] flex items-center justify-center rounded-full border-solid border-[1px] border-white text-white top-[3px] right-[0] ">
             6
           </span>
